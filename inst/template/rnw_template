@@ -1,0 +1,53 @@
+\documentclass[titlepage, a4paper, fontset=adobe, zihao=-4, scheme=plain]{ctexart}
+\usepackage{color, soul, hyperref, geometry, fontspec, newtxtext}
+\usepackage{graphicx,enumitem}
+
+\ctexset{punct=kaiming, space=auto}
+\geometry{left=10mm,right=10mm, bottom=25mm}
+\hypersetup{colorlinks=true}
+
+\setlength\parindent{0pt}  % 段落缩进为0
+\setlength{\lineskip}{2em} % 设置行间距
+
+% \newcommand{\hlchn}[1]{\colorbox{yellow}{\textbf{\texttt{#1}}}} %hl 不适于用中文
+\newcommand{\hlchn}[1]{\textcolor[rgb]{1,0.75,0}{#1}}%
+\newcommand{\hlarg}[1]{\hlkwc{#1}}
+\newcommand{\hlcst}[1]{\hlkwa{#1}}
+\newcommand{\hlvar}[1]{\hlstd{#1}}
+\newcommand{\hlfun}[1]{\hlkwd{#1}}
+
+%% if condition
+\newif\ifshowtext
+
+\title{ }
+\author{asepsiswu@gmail.com}
+\date{modified on \today{} \\ created on February 27, 2019}
+
+\begin{document}
+\maketitle
+
+\ifshowtext
+\section{enviroment}
+\fi
+<<env knitr, echo=FALSE>>=
+library(knitr)
+knitr::opts_chunk$set(echo=TRUE, warning=FALSE,  message=FALSE, cache=TRUE)
+
+knit_hooks$set(inline=function(x){
+    if (is.numeric(x))
+        return(knitr:::format_sci(x, 'latex'))
+    x <- highr:::hi_latex(x)
+    x <- gsub(pattern="\\$", replacement="\\\\$", x)
+#    sprintf("\\fbox{\\texttt{%s}}", x)
+})
+
+@
+
+<<env package, echo=FALSE>>=
+library(ggplot2)
+library(data.table)
+library(naturalsort)
+@
+
+
+\end{document}

@@ -1,0 +1,4 @@
+Name: Insert Rnw template
+Description: Inserts Rnw template  at the start of the document.
+Binding: insertRnwTemplate
+Interactive: false
