@@ -1,12 +1,16 @@
 insertRnwTemplate <- function() {
-  rstudioapi::setDocumentContents("",id=getSourceEditorContext()$id)
   x <- readLines(system.file('template/rnw_template',package = "a9ukey"))
   title_idx <- which(grepl("^\\\\title",x))[1]
   xx <- paste(x,collapse = "\n")
+  # clean document context
+  rstudioapi::setDocumentContents("",id=rstudioapi::getSourceEditorContext()$id)
+
+  # insert template
   rstudioapi::insertText( "\n" ,location = rstudioapi::document_position(0,0))
   rstudioapi::insertText( xx ,location = rstudioapi::document_position(0,0))
+
+  # set cursor position
   if(!is.na(title_idx))
-    #rstudioapi::insertText( "" ,location = rstudioapi::document_position(title_idx,7))
     rstudioapi::setCursorPosition( rstudioapi::document_position(title_idx,8))
 }
 
