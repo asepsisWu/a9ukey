@@ -65,5 +65,12 @@ insertSection.knitr <- function(){
 @
   "
  insertText( text.knitr, id = getSourceEditorContext()$id)
+}
 
+cleanSweaveTmp <- function(){
+  suffix <- c(".log", ".pdf", ".synctex.gz", ".tex")
+  files <- dir(pattern = "\\.[rR][nN][wW]$")
+  files <- tools::file_path_sans_ext(files)
+  files <- as.vector(outer(files,suffix,paste0))
+  suppressWarnings(tmp <- file.remove(files))
 }
