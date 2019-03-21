@@ -68,7 +68,7 @@ insertSection.knitr <- function(){
 }
 
 cleanSweaveTmp <- function(){
-  suffix <- c(".log", ".pdf", ".synctex.gz", ".tex")
+  suffix <- c(".log", ".pdf", ".synctex.gz", ".tex", "-concordance.tex")
   files <- dir(pattern = "\\.[rR][nN][wW]$")
   files <- tools::file_path_sans_ext(files)
   files <- as.vector(outer(files,suffix,paste0))
