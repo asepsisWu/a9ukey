@@ -13,3 +13,10 @@ Name: Insert knitr options
 Description: Inserts knitr options at the current location.
 Binding: insertSection.knitr
 Interactive: false
+
+
+
+Name: clean Sweave temporarily files
+Description: clean Sweave temporarily files, just make directory clean
+Binding: cleanSweaveTmp
+Interactive: false
