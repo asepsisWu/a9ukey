@@ -2,3 +2,14 @@ Name: Insert Rnw template
 Description: Inserts Rnw template  at the start of the document.
 Binding: insertRnwTemplate
 Interactive: false
+
+
+Name: Insert Preamble
+Description: Inserts Preamble at the current location.
+Binding: insertSection.preamble
+Interactive: false
+
+Name: Insert knitr options
+Description: Inserts knitr options at the current location.
+Binding: insertSection.knitr
+Interactive: false
