@@ -1,5 +1,5 @@
 insertRnwTemplate <- function() {
-  library(rstudioapi)
+  # library(rstudioapi)
   x <- readLines(system.file('template/rnw_template',package = "a9ukey"))
   title_idx <- which(grepl("^\\\\title",x))[1]
   xx <- paste(x,collapse = "\n")
@@ -16,7 +16,7 @@ insertRnwTemplate <- function() {
 }
 
 insertSection.preamble <- function(){
-  library(rstudioapi)
+  # library(rstudioapi)
   text.preamble <- "
 \\usepackage{color, soul, hyperref, geometry, fontspec, newtxtext}
 \\usepackage{graphicx,enumitem}
@@ -51,7 +51,7 @@ insertSection.preamble <- function(){
 
 
 insertSection.knitr <- function(){
-  library(rstudioapi)
+  # library(rstudioapi)
  text.knitr <- "
 <<knitr_opts, include=FALSE>>=
   library(knitr)
