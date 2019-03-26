@@ -68,8 +68,9 @@ insertSection.knitr <- function(){
 }
 
 cleanSweaveTmp <- function(){
-  suffix <- c(".log", ".pdf", ".synctex.gz", ".tex", "-concordance.tex")
-  files <- dir(pattern = "\\.[rR][nN][wW]$")
+  suffix <- c(".log", ".synctex.gz", ".tex", "-concordance.tex")
+  path  <- dirname(getSourceEditorContext()$path)
+  files <- dir(path, pattern = "\\.[rR][nN][wW]$",full.names = T)
   files <- tools::file_path_sans_ext(files)
   files <- as.vector(outer(files,suffix,paste0))
   suppressWarnings(tmp <- file.remove(files))
